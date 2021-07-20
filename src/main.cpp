@@ -203,6 +203,15 @@ int main(int argc, char *argv[]){
     solve_eigen_T(A,d,e,m,isuppz,w,z,vl,vu);
     print_eigen_values(m,w);
     auto programm_end_t = omp_get_wtime();
-    std::cout<<"Total time Consumption: "<<(programm_end_t-programm_start_t)*1e6<<"us."<<std::endl;
+    std::cout<<"Peak memory usage:"<<std::endl;
+    std::cout<<"A : "<<A.size()*A.size()*sizeof(double)/1024.0/1024.0/1024.0<<"GB."<<std::endl;
+    std::cout<<"B : "<<B.size()*B.size()*sizeof(double)/1024.0/1024.0/1024.0<<"GB."<<std::endl;
+    std::cout<<"M1 : "<<A.size()*A.size()*sizeof(double)/1024.0/1024.0/1024.0<<"GB."<<std::endl;
+    std::cout<<"M2 : "<<A.size()*A.size()*sizeof(double)/1024.0/1024.0/1024.0<<"GB."<<std::endl;
+    std::cout<<"M3 : "<<A.size()*A.size()*sizeof(double)/1024.0/1024.0/1024.0<<"GB."<<std::endl;
+    std::cout<<"M4 : "<<A.size()*A.size()*sizeof(double)/1024.0/1024.0/1024.0<<"GB."<<std::endl;
+    std::cout<<"Total : "<<(5*A.size()*A.size()*sizeof(double)+B.size()*B.size()*sizeof(double))/1024.0/1024.0/1024.0<<"GB."<<std::endl;
+    
+    std::cout<<"Total time Consumption: "<<(double)(programm_end_t-programm_start_t)*1e3<<"ms."<<std::endl;
     return 0;
 }
