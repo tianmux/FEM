@@ -188,11 +188,11 @@ int main(int argc, char *argv[]){
 #endif
     // Now we got all the matrices we need, try to solve the eigen problem.
     // solve for eigenvalues
-    int *m, *isuppz;
+    long long int *m, *isuppz;
     double *w,*z;
     double vl,vu;
-    m = (int *)mkl_malloc( sizeof( int ), 64 );
-    isuppz = (int *)mkl_malloc( A.size()*sizeof( int ), 64 );
+    m = (long long int *)mkl_malloc( sizeof( long long int ), 64 );
+    isuppz = (long long int *)mkl_malloc( A.size()*sizeof( long long int ), 64 );
     w = (double *)mkl_malloc( A.size()*sizeof( double ), 64 );
     z = (double *)mkl_malloc( A.size()*sizeof( double ), 64 );
     std::cout<<"Lower freq : "<<std::atof(argv[2])<<std::endl;

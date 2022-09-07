@@ -5,7 +5,7 @@
 //calculate det with MKL
 double det_MKL(std::vector<std::vector<double>> &M){
     double *tmpM = (double*) mkl_malloc(M.size()*M.size()*sizeof(double),64);
-    int *ip = (int*) mkl_malloc(M.size()*sizeof(double),64);
+    long long int *ip = (long long int*) mkl_malloc(M.size()*sizeof(double),64);
     double det = 1;
     for(int i = 0;i<M.size();++i){
         for(int j = 0;j<M.size();++j){
@@ -546,8 +546,8 @@ void A_to_T(std::vector<std::vector<double>> &A,
 void solve_eigen_T(std::vector<std::vector<double>> &T,
                     std::vector<double> &d,
                     std::vector<double> &e,
-                    int * m,
-                    int * isuppz,
+                    long long int * m,
+                    long long int * isuppz,
                     double *w,
                     double *z,
                     double vl,double vu){
@@ -566,7 +566,7 @@ void solve_eigen_T(std::vector<std::vector<double>> &T,
     mkl_free(tmpe);
 };
 
-void print_eigen_values(int *m,double *w){
+void print_eigen_values(long long int *m,double *w){
     for(int i = 0;i<*m;++i){
         std::cout<<"Eigen value id "<<i<<" : "<<std::endl<<
                     std::setw(20)<<"lambda = "<<w[i]<<std::endl<<

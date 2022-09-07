@@ -380,6 +380,7 @@ void convert_boundary(std::vector<int> &elem_ss1,
     std::sort(side_edge.begin(),side_edge.end());
     side_edge.erase(std::unique(side_edge.begin(),side_edge.end()),side_edge.end());
 }
+
 void print_node_elements(std::vector<element> &elements){
     for(int i = 0; i<elements.size(); ++i){
                 std::cout<< "elem "<<i<<" : "<<std::setw(10)<<
